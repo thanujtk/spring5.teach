@@ -8,10 +8,9 @@
 	<parent>
 		<groupId>spring5.teach</groupId>
 		<artifactId>spring5.teach.parent</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<version>1.0</version>
 	</parent>
 
-	<groupId>spring5.web.servlet</groupId>
 	<artifactId>web-servlet</artifactId>
 	<version>0.1-SNAPSHOT</version>
 
