@@ -19,7 +19,7 @@
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
 
-		<spring.version>5.0.5.RELEASE</spring.version>
+		<spring.version>[5.0.7,)</spring.version>
 		<junit.version>4.12</junit.version>
 	</properties>
 
