@@ -7,6 +7,8 @@ import java.beans.PropertyEditorSupport;
 import java.beans.SimpleBeanInfo;
 import java.util.Currency;
 
+//https://www.logicbig.com/how-to/code-snippets/jcode-spring-framework-beanwrapper.html
+
 public class MainWrapper {
     public static void main(String[] args) {
 //        PropertyEditorSupport implements PropertyEditor;
