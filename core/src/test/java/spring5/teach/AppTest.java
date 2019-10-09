@@ -2,8 +2,10 @@ package spring5.teach;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import tk.spring.lifecycle.BeanLifecycle;
 import tk.spring.lifecycle.JavaConfig;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,8 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = JavaConfig.class)
 public class AppTest {
 
+    @Autowired
+    private BeanLifecycle beanLifecycle;
+
     @Test
-    void whenCallingSayHello_thenReturnHello() {
-        assertTrue("Hello".equals("Hello"));
+    void whenContextInitialized_thenBeanShouldBeAvailable() {
+        assertTrue(beanLifecycle != null);
     }
 }
