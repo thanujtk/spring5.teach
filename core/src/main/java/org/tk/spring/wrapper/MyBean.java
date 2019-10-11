@@ -1,4 +1,4 @@
-package tk.spring.wrapper;
+package org.tk.spring.wrapper;
 
 public class MyBean {
 

@@ -1,25 +1,24 @@
-package tk.spring.lifecycle;
+package org.tk.spring.lifecycle;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.*;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringValueResolver;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 
 /**
  * As defined in  {@link org.springframework.beans.factory.BeanFactory}
  * https://www.tutorialspoint.com/spring/spring_ioc_containers.htm
  */
 @Component
+@Scope(BeanDefinition.SCOPE_SINGLETON)
 public class BeanLifecycle implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware,
         EnvironmentAware, EmbeddedValueResolverAware, ResourceLoaderAware, ApplicationEventPublisherAware,
-        MessageSourceAware, ApplicationContextAware, BeanPostProcessor {
+        MessageSourceAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
     @Override
     public void setBeanName(String s) {
@@ -69,17 +68,19 @@ public class BeanLifecycle implements BeanNameAware, BeanClassLoaderAware, BeanF
         System.out.println("10: ServletContextAware := Applicable only in web environment");
     }
 
-    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("11: BeanPostProcessor.postProcessBeforeInitialization :=[" + beanName + "] = " + bean);
-        return bean;
-    }
 
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("11: BeanPostProcessor.postProcessAfterInitialization :=[" + beanName + "] = " + bean);
-        return bean;
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("12: InitializingBean.afterPropertiesSet ");
+    }
+
+    private void customInit() {
+        System.out.println("13: Custom init-method as defined @Bean(initMethod = \"customInit\") ");
     }
 
 
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("15: Called DisposableBean.destory method ");
+    }
 }

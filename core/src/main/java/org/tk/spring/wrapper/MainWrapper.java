@@ -1,10 +1,8 @@
-package tk.spring.wrapper;
+package org.tk.spring.wrapper;
 
 import org.springframework.beans.BeanWrapperImpl;
 
 import java.beans.PropertyEditor;
-import java.beans.PropertyEditorSupport;
-import java.beans.SimpleBeanInfo;
 import java.util.Currency;
 
 //https://www.logicbig.com/how-to/code-snippets/jcode-spring-framework-beanwrapper.html
