@@ -20,8 +20,10 @@
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
 
         <spring.version>[5.0.7,)</spring.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>5.3.1</junit.version>
         <lombok.version>1.18.10</lombok.version>
+        <apache.lang3.common.version>3.9</apache.lang3.common.version>
+
     </properties>
 
     <modules>
@@ -33,12 +35,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <!-- dependency management for child projects -->
@@ -90,6 +91,13 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- apache commons -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.lang3.common.version}</version>
             </dependency>
 
         </dependencies>
