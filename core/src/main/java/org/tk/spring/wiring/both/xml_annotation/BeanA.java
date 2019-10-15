@@ -1,4 +1,4 @@
-package org.tk.spring.wiring.both;
+package org.tk.spring.wiring.both.xml_annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

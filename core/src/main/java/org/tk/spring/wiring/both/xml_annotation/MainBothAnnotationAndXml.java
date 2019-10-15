@@ -1,10 +1,12 @@
-package org.tk.spring.wiring.both;
+package org.tk.spring.wiring.both.xml_annotation;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Arrays;
 
+//@Autowired - inject by type
+//@Resource - inject by name
 public class MainBothAnnotationAndXml {
 
     //having <context:annotation-config /> spring adds many internal Processor which process annotation that are configured in xml
