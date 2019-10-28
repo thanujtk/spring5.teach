@@ -7,6 +7,6 @@
     <!-- org.tk.spring.wiring.both  has example where defined beans here are processed any annotations -->
     <context:annotation-config/>
 
-    <bean id="beanA" class="org.tk.spring.wiring.both.BeanA" />
-    <bean class="org.tk.spring.wiring.both.BeanB" />
+    <bean id="beanA" class="org.tk.spring.wiring.both.xml_annotation.BeanA" />
+    <bean class="org.tk.spring.wiring.both.xml_annotation.BeanB" />
 </beans>

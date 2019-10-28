@@ -15,7 +15,7 @@ public class MainBothAnnotationAndXml {
         Arrays.stream(applicationContext.getBeanDefinitionNames()).forEach(System.out::println);
 
         //If Id is not given then bean for BeanB class
-        BeanB beanB = applicationContext.getBean("org.tk.spring.wiring.both.BeanB#0", BeanB.class);
+        BeanB beanB = applicationContext.getBean("org.tk.spring.wiring.both.xml_annotation.BeanB#0", BeanB.class);
         System.out.println(beanB);//singleton
 
         //Here @Autowired annotation is set which will be processed and BeanB is set
