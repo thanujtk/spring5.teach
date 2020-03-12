@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.util.concurrent.atomic.AtomicLong;
 
 //https://www.skatteetaten.no/en/person/national-registry/birth-and-name-selection/children-born-in-norway/national-id-number/
 //https://www.progsbase.com/algowidgets/norwegian-personal-identification-number-online/
@@ -19,26 +21,30 @@ public class Valid11DigitCustomerNumber {
         System.out.println(IsValidNorwegianPersonalIdentificationNumber("10061270707".toCharArray()));
 
         Path out = Paths.get("Customer_01015000000.csv");//from 01(day)-01(month)-1950(year)
-        PrintWriter printWriter = new PrintWriter(Files.newBufferedWriter(out));
-        long l = Long.parseLong("01015000000");
-        boolean valid = false;
-        int count = 0;
-        String pad11Digit = "";
+        final PrintWriter printWriter = new PrintWriter(Files.newBufferedWriter(out));
 
-        for (long x = l; x < 31125100000l; x++) { //from 50 to 51 years
-            pad11Digit = padTo11DigitString("" + x);
-            //valid = IsValidNorwegianPersonalIdentificationNumber(("" + x).toCharArray());
-            valid = IsValidNorwegianPersonalIdentificationNumber(pad11Digit.toCharArray());
-            if (valid) {
-                count++;
-                printWriter.println(pad11Digit);
-                System.out.println(l + " = " + pad11Digit +" -- " + x + "=" + valid);
+        DateRangeIterator dateRangeIterator = new DateRangeIterator(LocalDate.parse("1950-01-01"), LocalDate.parse("1955-12-31"));
+        final AtomicLong counter = new AtomicLong(0);
+
+        dateRangeIterator.forEachRemaining(date -> {
+            //date is 6 digits (ddMMyy) and we iterate next 5 digits from 0 to 99999 with left padding
+            System.out.println("Generating valid customer number for date (yyyy-MM-dd) - " + date);
+            String pad11Digit = "";
+            boolean valid = false;
+            for (int i = 0; i < 99999; i++) {
+                pad11Digit = dateRangeIterator.getddMMyyFormat() + StringUtils.leftPad("" + i, 5);
+                valid = IsValidNorwegianPersonalIdentificationNumber(pad11Digit.toCharArray());
+                if (valid) {
+                    counter.incrementAndGet();
+                    printWriter.println(pad11Digit);
+                    System.out.println( date + " = " + pad11Digit + " -- " + valid);
+                }
             }
-            //System.out.println(l + " = " + pad11Digit +" -- " + x + "=" + valid);
-        }
+        });
+
 
         printWriter.close();
-        System.out.println("Valid Customer Numbers: " + count);
+        System.out.println("Valid Customer Numbers: " + counter.get());
     }
 
     public static String padTo11DigitString(String acctNo) {
