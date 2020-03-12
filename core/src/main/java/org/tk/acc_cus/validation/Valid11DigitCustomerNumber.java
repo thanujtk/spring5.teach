@@ -12,7 +12,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 //https://www.skatteetaten.no/en/person/national-registry/birth-and-name-selection/children-born-in-norway/national-id-number/
 //https://www.progsbase.com/algowidgets/norwegian-personal-identification-number-online/
-// Downloaded from https://repo.progsbase.com - Code Developed Using progsbase.
+
+// Downloaded from https://repo.progsbase.com - Code Developed Using progsbase and modified to my needs.
 
 public class Valid11DigitCustomerNumber {
 
@@ -23,7 +24,7 @@ public class Valid11DigitCustomerNumber {
         Path out = Paths.get("Customer_01015000000.csv");//from 01(day)-01(month)-1950(year)
         final PrintWriter printWriter = new PrintWriter(Files.newBufferedWriter(out));
 
-        DateRangeIterator dateRangeIterator = new DateRangeIterator(LocalDate.parse("1950-01-01"), LocalDate.parse("1955-12-31"));
+        DateRangeIterator dateRangeIterator = new DateRangeIterator(LocalDate.parse("1950-01-01"), LocalDate.parse("1950-12-31"));
         final AtomicLong counter = new AtomicLong(0);
 
         dateRangeIterator.forEachRemaining(date -> {
@@ -32,7 +33,7 @@ public class Valid11DigitCustomerNumber {
             String pad11Digit = "";
             boolean valid = false;
             for (int i = 0; i < 99999; i++) {
-                pad11Digit = dateRangeIterator.getddMMyyFormat() + StringUtils.leftPad("" + i, 5);
+                pad11Digit = dateRangeIterator.getddMMyyFormat() + StringUtils.leftPad("" + i, 5, '0');
                 valid = IsValidNorwegianPersonalIdentificationNumber(pad11Digit.toCharArray());
                 if (valid) {
                     counter.incrementAndGet();
