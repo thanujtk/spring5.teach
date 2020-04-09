@@ -3,6 +3,8 @@ package org.tk.spring.beandefinition;
 import lombok.Data;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 @Data
 public class AnotherMyBean implements BeanPostProcessor {

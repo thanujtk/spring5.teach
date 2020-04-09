@@ -2,6 +2,9 @@ package org.tk.spring.beandefinition;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+/**
+ * This examples shows how to load using {@link CustomServiceRegistryPostProcessor}
+ */
 public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(JavaConfigBeanDef.class);
@@ -10,7 +13,7 @@ public class Main {
         }
 
         //Single is lazy initialized, so until bean is accessed BeanPostProcessor not called, change by lazy-initialization mode
-        AnotherMyBean anotherMyBean = annotationConfigApplicationContext.getBean("anotherMyBean", AnotherMyBean.class);
+        AnotherMyBean anotherMyBean = annotationConfigApplicationContext.getBean("anotherMyBean2", AnotherMyBean.class);
         System.out.println(anotherMyBean.getVersion());
 
         annotationConfigApplicationContext.registerShutdownHook();

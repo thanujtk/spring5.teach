@@ -28,13 +28,13 @@ public class CustomServiceRegistryPostProcessor implements BeanDefinitionRegistr
         beanDefinition.setTargetType(MyBean.class); //The service interface
         beanDefinition.setRole(BeanDefinition.ROLE_APPLICATION);
         beanDefinition.setScope(BeanDefinition.SCOPE_PROTOTYPE);
-        registry.registerBeanDefinition("myBean", beanDefinition );
+        registry.registerBeanDefinition("myBean2", beanDefinition );
 
         RootBeanDefinition anotherBeanDef = new RootBeanDefinition(AnotherMyBean.class); // Actual service
         anotherBeanDef.setTargetType(AnotherMyBean.class); //The service interface
         anotherBeanDef.setRole(BeanDefinition.ROLE_APPLICATION);
         anotherBeanDef.setScope(BeanDefinition.SCOPE_PROTOTYPE);
-        registry.registerBeanDefinition("anotherMyBean", anotherBeanDef );
+        registry.registerBeanDefinition("anotherMyBean2", anotherBeanDef );
     }
 
     @Override

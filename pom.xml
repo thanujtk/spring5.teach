@@ -19,9 +19,9 @@
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
 
-        <spring.version>[5.0.7,)</spring.version>
-        <junit.version>5.3.1</junit.version>
-        <lombok.version>1.18.10</lombok.version>
+        <spring.version>[5.2.5,)</spring.version>
+        <junit.version>[5.6.1,)</junit.version>
+        <lombok.version>[1.18.10,)</lombok.version>
         <apache.lang3.common.version>3.9</apache.lang3.common.version>
 
     </properties>

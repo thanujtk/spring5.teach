@@ -4,7 +4,7 @@ import lombok.Data;
 
 
 @Data
-public class MyBean {
+class MyBean {
     private String name;
     private String version;
 }
