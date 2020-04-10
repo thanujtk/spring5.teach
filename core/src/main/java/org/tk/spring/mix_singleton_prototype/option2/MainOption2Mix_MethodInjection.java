@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Arrays;
 
+//In this Option we define Singleton as abstract to have abstract method for prototype and in xml create a lookup-method
 public class MainOption2Mix_MethodInjection {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext8.xml");
@@ -14,6 +15,13 @@ public class MainOption2Mix_MethodInjection {
 
         Prototype prototype1 =  singleton.createPrototype();
         Prototype prototype2 =  singleton.createPrototype();
+
+
+        //All the time returns same object for below
+        Prototype prototype3 =  singleton.getPrototype();
+        System.out.println(prototype3);
+        Prototype prototype4 =  singleton.getPrototype();
+        System.out.println(prototype4);
 
     }
 }

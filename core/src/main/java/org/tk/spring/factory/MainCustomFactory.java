@@ -17,6 +17,7 @@ public class MainCustomFactory {
 
         //Bean got from CustomFactory
         BeanB  beanB = applicationContext.getBean("beanB", BeanB.class);
+        System.out.println(beanB);
 
     }
 }

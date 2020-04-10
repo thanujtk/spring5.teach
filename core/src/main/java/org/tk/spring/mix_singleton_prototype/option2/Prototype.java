@@ -2,6 +2,6 @@ package org.tk.spring.mix_singleton_prototype.option2;
 
 public class Prototype {
     public Prototype() {
-        System.out.println("Prototype - " + this);
+        System.out.println("Created Prototype - " + this);
     }
 }

@@ -1,9 +1,5 @@
 package org.tk.spring.mix_singleton_prototype.option2;
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-
 //When using method inject make class as abstract
 public abstract class Singleton {
 
@@ -14,10 +10,10 @@ public abstract class Singleton {
 
     //Though bean is prototype, each call for this will return same object
     public Prototype getPrototype() {
-        return prototype;
+        return prototype; // You can change createPrototype method as getPrototype, here these methods shows the difference
     }
 
     public void setPrototype(Prototype prototype) {
-        this.prototype = prototype;
+        this.prototype = prototype;  // this will return all the time same object
     }
 }

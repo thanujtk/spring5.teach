@@ -8,8 +8,8 @@
      -->
     <context:annotation-config/>
 
-    <bean id="beanA" class="org.tk.spring.wiring.auto.sametype.BeanA"/>
-    <bean id="beanB1" class="org.tk.spring.wiring.auto.sametype.BeanB"/>
-    <bean id="beanB2" class="org.tk.spring.wiring.auto.sametype.BeanB"/>
-    <bean id="beanB3" class="org.tk.spring.wiring.auto.sametype.BeanB"/>
+    <bean id="beanA" class="org.tk.spring.wiring.ex4.auto.sametype.BeanA"/>
+    <bean id="beanB1" class="org.tk.spring.wiring.ex4.auto.sametype.BeanB"/>
+    <bean id="beanB2" class="org.tk.spring.wiring.ex4.auto.sametype.BeanB"/>
+    <bean id="beanB3" class="org.tk.spring.wiring.ex4.auto.sametype.BeanB"/>
 </beans>

@@ -4,12 +4,14 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- org.tk.spring.wiring.both.xml_annotation  has example where defined beans here are processed any annotations
-     -->
+    <!-- org.tk.spring.wiring.auto.sametype  has example where defined beans here are processed any annotations -->
+    <!-- AutowiredAnnotationBeanPostProcessor -->
     <context:annotation-config/>
+    <!-- OR -->
+    <!-- bean  class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/ -->
 
-    <bean id="beanA" class="org.tk.spring.wiring.auto.BeanA"/>
-    <bean id="beanB1" class="org.tk.spring.wiring.auto.BeanB"/>
-    <bean id="beanB2" class="org.tk.spring.wiring.auto.BeanB"/>
-    <bean id="beanB3" class="org.tk.spring.wiring.auto.BeanB"/>
+    <bean id="beanA" class="org.tk.spring.wiring.ex3.auto.BeanA"/>
+    <bean id="beanB1" class="org.tk.spring.wiring.ex3.auto.BeanB"/>
+    <bean id="beanB2" class="org.tk.spring.wiring.ex3.auto.BeanB"/>
+    <bean id="beanB3" class="org.tk.spring.wiring.ex3.auto.BeanB"/>
 </beans>

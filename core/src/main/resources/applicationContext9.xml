@@ -9,9 +9,9 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="beanA" class="org.tk.spring.xml_autowire.BeanA" />
-    <bean id="beanC" class="org.tk.spring.xml_autowire.BeanC" />
-    <bean id="beanB" class="org.tk.spring.xml_autowire.BeanB" autowire="byType" />
+    <bean id="beanA" class="org.tk.spring.wiring.ex8.xml_autowire.BeanA" />
+    <bean id="beanC" class="org.tk.spring.wiring.ex8.xml_autowire.BeanC" />
+    <bean id="beanB" class="org.tk.spring.wiring.ex8.xml_autowire.BeanB" autowire="byType" />
     <!-- picks most arguments constructor that it could satisfy -->
-    <!-- bean id="beanB" class="org.tk.spring.xml_autowire.BeanB" autowire="constructor" / -->
+    <!-- bean id="beanB" class="BeanB" autowire="constructor" / -->
 </beans>

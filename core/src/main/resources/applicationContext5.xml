@@ -9,9 +9,9 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="beanA" class="org.tk.spring.wiring.constructor.BeanA"/>
-    <bean id="beanB" class="org.tk.spring.wiring.constructor.BeanB"/>
-    <bean id="beanC" class="org.tk.spring.wiring.constructor.BeanC" c:_0-ref="beanA" c:beanB-ref="beanB"
+    <bean id="beanA" class="org.tk.spring.wiring.ex5.constructor.BeanA"/>
+    <bean id="beanB" class="org.tk.spring.wiring.ex5.constructor.BeanB"/>
+    <bean id="beanC" class="org.tk.spring.wiring.ex5.constructor.BeanC" c:_0-ref="beanA" c:beanB-ref="beanB"
           p:name="TestMe"/>
 
 </beans>

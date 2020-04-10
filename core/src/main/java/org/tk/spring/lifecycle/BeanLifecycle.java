@@ -10,6 +10,8 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringValueResolver;
 
+import javax.annotation.PostConstruct;
+
 /**
  * As defined in  {@link org.springframework.beans.factory.BeanFactory}
  * https://www.tutorialspoint.com/spring/spring_ioc_containers.htm
@@ -74,6 +76,8 @@ public class BeanLifecycle implements BeanNameAware, BeanClassLoaderAware, BeanF
         System.out.println("12: InitializingBean.afterPropertiesSet ");
     }
 
+
+    @PostConstruct
     private void customInit() {
         System.out.println("13: Custom init-method as defined @Bean(initMethod = \"customInit\") ");
     }
