@@ -46,18 +46,21 @@ __**NOTES**__
 11. **@Qualifier** - Used with @Autowired when more than one bean of
     same type exists in container.
 
+Stereotype annotations are @Component, @Service, @Repository and
+@Controller
+
 ## Scopes ##
 
 5 scopes
 
 Valid in any configuration
 - Singleton (default - single bean)
-- Prototype (new bean each time)
+- Prototype (unique bean per request)
 
 Valid in web-aware spring projects
 - Request
-- Response
-- Global
+- Session
+- Global Session
 
 
 ### Spring MVC Annotations

@@ -79,7 +79,7 @@ public class BeanLifecycle implements BeanNameAware, BeanClassLoaderAware, BeanF
 
     @PostConstruct
     private void customInit() {
-        System.out.println("13: Custom init-method as defined @Bean(initMethod = \"customInit\") ");
+        System.out.println("13: Custom init-method as defined @Bean(initMethod = \"customInit\")  or @PostConstruct");
     }
 
 
