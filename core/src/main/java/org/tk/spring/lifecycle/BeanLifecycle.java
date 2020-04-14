@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringValueResolver;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * As defined in  {@link org.springframework.beans.factory.BeanFactory}
@@ -73,18 +74,24 @@ public class BeanLifecycle implements BeanNameAware, BeanClassLoaderAware, BeanF
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("12: InitializingBean.afterPropertiesSet ");
+        System.out.println("13: InitializingBean.afterPropertiesSet ");
     }
 
 
     @PostConstruct
     private void customInit() {
-        System.out.println("13: Custom init-method as defined @Bean(initMethod = \"customInit\")  or @PostConstruct");
+        System.out.println("11: Custom init-method as defined @Bean(initMethod = \"customInit\")  or @PostConstruct");
     }
 
 
     @Override
     public void destroy() throws Exception {
         System.out.println("15: Called DisposableBean.destory method ");
+    }
+
+
+    @PreDestroy
+    private void preDestroy() {
+        System.out.println("15: Called @PreConstruct annotated method ");
     }
 }
