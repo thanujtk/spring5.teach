@@ -2,6 +2,7 @@
 .settings
 target
 .classpath
+.factorypath
 .project
 bin
 *.iml
