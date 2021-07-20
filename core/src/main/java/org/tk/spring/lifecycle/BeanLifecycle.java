@@ -16,6 +16,17 @@ import javax.annotation.PreDestroy;
 /**
  * As defined in  {@link org.springframework.beans.factory.BeanFactory}
  * https://www.tutorialspoint.com/spring/spring_ioc_containers.htm
+ *<ol>
+ * 1. instantiate
+ * 2. populate properties
+ * 3. BeanNameAware
+ * 4. BeanFactoryAware
+ * 5. Pre-initialization - BeanPostProcessor
+ * 6. InitializeBean
+ * 7. init-method
+ * 8. Post-initialization - BeanPostProcessor
+ * 9. ....
+ * </ol>
  */
 @Component
 @Scope(BeanDefinition.SCOPE_SINGLETON)

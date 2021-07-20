@@ -136,10 +136,11 @@ public class ValidateAccountNumber {
         Path out = Paths.get("Accounts_21257300000.csv");
         PrintWriter printWriter = new PrintWriter(Files.newBufferedWriter(out));
         ValidateAccountNumber validateAccountNumber = new ValidateAccountNumber();
-        long l = 21257300000l;
+        //long l = 21257300000l;
+        long l = 40687950000l;
         boolean valid = false;
         int count = 0;
-        for (long x = l; x < 21257999999l; x++) {
+        for (long x = l; x < 40687999999l; x++) {
             valid = validateAccountNumber.isValid("" + x);
             if (valid) {
                 count++;
