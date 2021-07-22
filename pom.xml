@@ -28,11 +28,12 @@
         <!-- not used due to issue, instead using intellij error prone plugin -->
         <errorprone.version>2.7.1</errorprone.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
+        <hibernate-validator.version>7.0.1.Final</hibernate-validator.version>
         <junit5.version>5.7.2</junit5.version>
+
         <jakarta.el-api.version>3.0.3</jakarta.el-api.version>
         <jackson-dataformat-xml.version>2.12.4</jackson-dataformat-xml.version>
-
+        <jakarta.el-api.version>4.0.0</jakarta.el-api.version>
         <!-- required for @PostConstruct and @PreDestroy -->
         <jakarta.annotation.version>2.0.0</jakarta.annotation.version>
         <apache.lang3.common.version>3.12.0</apache.lang3.common.version>
