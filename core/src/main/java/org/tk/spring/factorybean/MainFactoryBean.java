@@ -13,10 +13,21 @@ public class MainFactoryBean {
         Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 
         Calendar calendarFactory = (Calendar) context.getBean("getCalendarFactory"); //Not CalendarFactory, as CalendarFactory is a FactoryBean
+        System.out.println(calendarFactory); //is it same instance?
 
         System.out.println(calendarFactory.getTime());
-        System.out.println(context.getBean("getCalendar", Calendar.class).getTime()); //same as above
+        System.out.println(context.getBean("getCalendar", Calendar.class)); //is it same instance?
+        System.out.println(context.getBean("getCalendar", Calendar.class).getTime()); //same as calendarFactory.getTime()
+        System.out.println(context.getBean("getCalendar", Calendar.class).hashCode()); //is it same instance?
 
+
+        for (int i = 0; i < 10; i++) {
+            Thread.sleep(1000);
+            calendarFactory = context.getBean("getCalendarFactory", Calendar.class);
+            System.out.println(calendarFactory.hashCode());
+            calendarFactory = context.getBean("getCalendar", Calendar.class);
+            System.out.println(calendarFactory.hashCode());
+        }
         //SpEL
         System.out.println(context.getBean("getRandSeed"));
         context.close();

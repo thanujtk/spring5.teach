@@ -34,52 +34,56 @@ public class BeanLifecycle implements BeanNameAware, BeanClassLoaderAware, BeanF
         EnvironmentAware, EmbeddedValueResolverAware, ResourceLoaderAware, ApplicationEventPublisherAware,
         MessageSourceAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
+    public BeanLifecycle() {
+        System.out.println("===BeanLifecycle constructor called===============");
+    }
+
     @Override
     public void setBeanName(String s) {
-        System.out.println("1: BeanNameAware :=" + s);
+        System.out.println("1: BeanNameAware.setBeanName :=" + s);
     }
 
     @Override
     public void setBeanClassLoader(ClassLoader classLoader) {
-        System.out.println("2: BeanClassLoaderAware :=" + classLoader);
+        System.out.println("2: BeanClassLoaderAware.setBeanClassLoader :=" + classLoader);
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("3: BeanFactoryAware :=" + beanFactory);
+        System.out.println("3: BeanFactoryAware.setBeanFactory :=" + beanFactory);
     }
 
 
     @Override
     public void setEnvironment(Environment environment) {
-        System.out.println("4: EnvironmentAware :=" + environment);
+        System.out.println("4: EnvironmentAware.setEnvironment :=" + environment);
     }
 
     @Override
     public void setEmbeddedValueResolver(StringValueResolver stringValueResolver) {
-        System.out.println("5: EmbeddedValueResolverAware :=" + stringValueResolver);
+        System.out.println("5: EmbeddedValueResolverAware.setEmbeddedValueResolver :=" + stringValueResolver);
     }
 
 
     @Override
     public void setResourceLoader(ResourceLoader resourceLoader) {
-        System.out.println("6: ResourceLoaderAware :=" + resourceLoader);
+        System.out.println("6: ResourceLoaderAware.setResourceLoader :=" + resourceLoader);
     }
 
     @Override
     public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
-        System.out.println("7: ApplicationEventPublisherAware :=" + applicationEventPublisher);
+        System.out.println("7: ApplicationEventPublisherAware.setApplicationEventPublisher :=" + applicationEventPublisher);
     }
 
     @Override
     public void setMessageSource(MessageSource messageSource) {
-        System.out.println("8: MessageSourceAware :=" + messageSource);
+        System.out.println("8: MessageSourceAware.setMessageSource :=" + messageSource);
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("9: ApplicationContextAware :=" + applicationContext);
-        System.out.println("10: ServletContextAware := Applicable only in web environment");
+        System.out.println("9: ApplicationContextAware.setApplicationContext :=" + applicationContext);
+        System.out.println("10: ServletContextAware.setApplicationContext := Applicable only in web environment");
     }
 
 
@@ -91,18 +95,18 @@ public class BeanLifecycle implements BeanNameAware, BeanClassLoaderAware, BeanF
 
     @PostConstruct
     private void customInit() {
-        System.out.println("11: Custom init-method as defined @Bean(initMethod = \"customInit\")  or @PostConstruct");
+        System.out.println("12: Custom init-method as defined @Bean(initMethod = \"customInit\")  or @PostConstruct");
     }
 
 
     @Override
-    public void destroy() throws Exception {
-        System.out.println("15: Called DisposableBean.destory method ");
+    public void destroy() {
+        System.out.println("16: Called DisposableBean.destory method ");
     }
 
 
     @PreDestroy
     private void preDestroy() {
-        System.out.println("15: Called @PreConstruct annotated method ");
+        System.out.println("15: Called @PreDestroy annotated method ");
     }
 }

@@ -18,7 +18,7 @@ public class MainBothAnnotationAndXml {
         BeanB beanB = applicationContext.getBean("org.tk.spring.wiring.ex2.both.xml_annotation.BeanB#0", BeanB.class);
         System.out.println(beanB);//singleton
 
-        //Here @Autowired annotation is set which will be processed and BeanB is set
+        //Here @Autowired annotation is set which will be processed and BeanA is set
         BeanA beanA = applicationContext.getBean("beanA", BeanA.class);
 
         System.out.println(beanA.getBeanB());//singleton

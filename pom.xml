@@ -23,6 +23,8 @@
         <spring.version>[5.2.5,)</spring.version>
         <junit.version>[5.6.1,)</junit.version>
         <lombok.version>1.18.20</lombok.version>
+        <aspectj.version>1.9.6</aspectj.version>
+        <!-- not used due to issue, instead using intellij error prone plugin -->
         <errorprone.version>2.7.1</errorprone.version>
 
         <!-- required for @PostConstruct and @PreDestroy -->
@@ -42,25 +44,7 @@
     <!-- dependency management for child projects -->
     <dependencyManagement>
         <dependencies>
-            <!--dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
-            </dependency -->
-
-            <!-- dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>
-                <version>${spring.version}</version>
-            </dependency -->
-
-            <!-- dependency>
-                 <groupId>org.springframework</groupId>
-                 <artifactId>spring-aop</artifactId>
-                 <version>${spring.version}</version>
-             </dependency -->
-
-            <!-- commented above three dependencides as spring-context adds them as transitive dependency - core, aop, expression, jcl, beans -->
+            <!-- spring-context adds them as transitive dependency - core, aop, expression, jcl, beans -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
@@ -87,9 +71,22 @@
             </dependency>
 
             <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- aspecj runtime for aop -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjtools</artifactId>
+                <version>${aspectj.version}</version>
             </dependency>
 
             <!-- apache commons -->
@@ -137,29 +134,18 @@
                     <encoding>UTF-8</encoding>
                     <fork>true</fork>
                     <!-- https://errorprone.info/docs/installation -->
+                    <!-- https://errorprone.info/docs/installation#jdk-16 -->
                     <!-- https://github.com/RichardBradley/error-prone/blob/00df8f2a7a1d9a26ba9e7aa86f4561940b7759ed/examples/maven-with-lombok/pom.xml -->
                     <compilerArgs>
                         <arg>--enable-preview</arg>
                         <arg>-XDcompilePolicy=simple</arg>
-                        <!-- for errorProne plugin to enable -->
-                        <arg>-Xplugin:ErrorProne</arg>
-                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
-                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
-                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
-                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
-                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
-                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
-                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
-                        <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
-                        <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
                     </compilerArgs>
                     <annotationProcessorPaths>
-                        <path>
+                        <!-- path>
                             <groupId>com.google.errorprone</groupId>
                             <artifactId>error_prone_core</artifactId>
                             <version>${errorprone.version}</version>
-                        </path>
+                        </path -->
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>

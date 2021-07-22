@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Scope;
 @ComponentScan(basePackages = {"org.tk.spring.lifecycle"})
 public class JavaConfig {
 
+      public JavaConfig() {
+          System.out.println("===JavaConfig constructor called (no lifecycle added)===============");
+      }
 //    @Bean(initMethod = "customInit") //can use @PostConstruct for customInit
 //    public BeanLifecycle beanLifecycle() {
 //        return new BeanLifecycle(); // If object is created directly BeanPostProcessor is not called, so called when component scan loads the bean

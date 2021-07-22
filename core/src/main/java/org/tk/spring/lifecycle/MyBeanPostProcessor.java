@@ -10,6 +10,10 @@ import java.lang.annotation.Annotation;
 @Component
 public class MyBeanPostProcessor implements BeanPostProcessor, Ordered {
 
+    public MyBeanPostProcessor () {
+        System.out.println("===MyBeanPostProcessor constructor called===============");
+    }
+
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         System.out.println("14: BeanPostProcessor.postProcessAfterInitialization :=[" + beanName + "] = " + bean);

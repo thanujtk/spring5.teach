@@ -15,7 +15,9 @@ public class MainOption1Mix {
         Singleton singleton = applicationContext.getBean("singleton", Singleton.class);
 
         Prototype prototype1 =  singleton.createPrototype(); // returns new object
+        System.out.println(prototype1);
         Prototype prototype2 =  singleton.createPrototype(); // returns new object
+        System.out.println(prototype2);
 
         Prototype prototype3 =  singleton.getPrototype(); // will return same object
         System.out.println(prototype3);

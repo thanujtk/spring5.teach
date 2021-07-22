@@ -5,7 +5,7 @@ import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-//In singleton there prototype object which should return new object for evry call
+//In singleton there is prototype object which should return new object for every call
 public class Singleton implements ApplicationContextAware {
 
     private Prototype prototype;
