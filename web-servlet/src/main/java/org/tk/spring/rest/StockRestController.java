@@ -1,15 +1,13 @@
 package org.tk.spring.rest;
 
-import lombok.AllArgsConstructor;
-import lombok.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -32,33 +30,24 @@ public class StockRestController {
         if (STOCK_LIVE.containsKey(company)) {
             stock = STOCK_LIVE.get(company);
         } else {
-            throw new IllegalArgumentException("we done have stock information for given company");
+            throw new RuntimeException("we don't have stock information for given company");
         }
         return stock;
     }
 
     @PutMapping("/stock/{company}")
-    public void storeStockPrice(@PathVariable("company") String company, @Valid @RequestBody Stock stock) {
+    public ResponseEntity storeStockPrice(@PathVariable("company") String company, @Valid @RequestBody Stock stock) {
         STOCK_LIVE.put(company, stock);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/stock/{company}")
-    public void updateStockPrice(@PathVariable("company") String company, @Valid @RequestBody Stock stock) {
+    public void updateStockPrice(@PathVariable("company") String company, @Validated/*spring*/ @RequestBody Stock stock) {
         STOCK_LIVE.put(company, stock);
     }
 
-
-    @Value
-    @AllArgsConstructor
-    static class Stock {
-
-        @NotNull
-        @Size(max = 15)
-        private String company;
-
-        @NotNull
-        @DecimalMin("0.01")
-        private Double price;
+    @GetMapping(value = "/stocks")
+    public List<Stock> getAllStockPrice() {
+        return STOCK_LIVE.values().stream().toList();
     }
-
 }

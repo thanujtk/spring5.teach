@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//All generic exceptions handled by this class
+//All generic exceptions handled by this class (global)
 @Component
 public class CommonExceptionHandler implements HandlerExceptionResolver {
 
