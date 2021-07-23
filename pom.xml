@@ -22,7 +22,6 @@
 
         <spring.version>5.3.9</spring.version>
         <springdoc-openapi-ui.version>1.5.9</springdoc-openapi-ui.version>
-        <junit.version>5.7.2</junit.version>
         <lombok.version>1.18.20</lombok.version>
         <aspectj.version>1.9.7</aspectj.version>
         <!-- not used due to issue, instead using intellij error prone plugin -->
@@ -84,13 +83,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>${junit5.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
@@ -144,13 +136,13 @@
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
-                <version>${junit.version}</version>
+                <version>${junit5.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
-                <version>${junit.version}</version>
+                <version>${junit5.version}</version>
                 <scope>test</scope>
             </dependency>
 
