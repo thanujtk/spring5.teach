@@ -30,7 +30,7 @@
         <hibernate-entitymanager.version>5.5.4.Final</hibernate-entitymanager.version>
         <spring-data-jpa.version>2.3.9.RELEASE</spring-data-jpa.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
+        <hibernate-validator.version>7.0.1.Final</hibernate-validator.version>
         <junit5.version>5.7.2</junit5.version>
         <h2database.version>1.4.200</h2database.version>
 
