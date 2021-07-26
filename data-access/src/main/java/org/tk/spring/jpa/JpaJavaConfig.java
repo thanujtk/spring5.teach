@@ -7,6 +7,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.StandardEnvironment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -30,6 +32,15 @@ import java.util.stream.Collectors;
 public class JpaJavaConfig implements ApplicationContextAware {
 
     //require spring-orm
+    public JpaJavaConfig(Environment env) {
+        Arrays.stream(env.getActiveProfiles()).forEach(x -> System.out.println("ActiveProfile: " + x));
+        Arrays.stream(env.getDefaultProfiles()).forEach(x -> System.out.println("DefaultProfile : " + x));
+        ((StandardEnvironment) env).getSystemEnvironment().forEach((s, o) -> System.out.println(s + " -=- " + o));
+        ((StandardEnvironment) env).getSystemProperties().forEach((s, o) -> {
+            System.out.println(s + " :=: " + o);
+        });
+
+    }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -62,7 +73,7 @@ public class JpaJavaConfig implements ApplicationContextAware {
         Properties properties = new Properties();
         properties.put("connection.driver_class", "org.h2.Driver");
         properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-        properties.put("show_sql","true");
+        properties.put("show_sql", "true");
         properties.put("hibernate.connection.datasource", dataSource());
         return properties;
     }

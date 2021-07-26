@@ -25,6 +25,7 @@ public class StockRestController {
     };
 
     @GetMapping("/stock/{company}")
+    @ResponseBody
     public Stock getStockPrice(@PathVariable("company") String company) {
         Stock stock;
         if (STOCK_LIVE.containsKey(company)) {
