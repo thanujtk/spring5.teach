@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories // required for spring-data-jpa (StockJpaRepository)
+@EnableJpaRepositories // required for spring-data-jpa (StockJ2pa2Repository)
 @ComponentScan
 public class Jpa2JavaConfig {
 
