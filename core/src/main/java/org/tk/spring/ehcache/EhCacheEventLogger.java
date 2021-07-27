@@ -7,6 +7,6 @@ public class EhCacheEventLogger implements CacheEventListener<Object, Object> {
 
     @Override
     public void onEvent(CacheEvent<?, ?> cacheEvent) {
-        System.out.printf("Cache event %s  %s  %s", cacheEvent.getKey(), cacheEvent.getOldValue(), cacheEvent.getNewValue());
+        System.out.printf("Cache event with key %s  %s, old value %s and new value %s \n", cacheEvent.getKey(), cacheEvent.getType(), cacheEvent.getOldValue(), cacheEvent.getNewValue());
     }
 }
