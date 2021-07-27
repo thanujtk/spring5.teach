@@ -23,6 +23,7 @@
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
 
+        <sl4j.version>1.7.25</sl4j.version>
         <spring.version>5.3.9</spring.version>
         <springdoc-openapi-ui.version>1.5.9</springdoc-openapi-ui.version>
         <lombok.version>1.18.20</lombok.version>
@@ -62,6 +63,24 @@
     <!-- dependency management for child projects -->
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${sl4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${sl4j.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
 
             <dependency>
                 <groupId>jakarta.el</groupId>

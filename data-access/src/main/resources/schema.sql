@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS stocks;
 
 CREATE TABLE stocks
 (
-    id    varchar(255),
-    name  varchar(255),
-    price double
+    id    varchar(255) not null ,
+    name  varchar(255) not null ,
+    price double not null
 );

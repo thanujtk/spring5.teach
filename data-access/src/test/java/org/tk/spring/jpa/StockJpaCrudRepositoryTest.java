@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {JpaJavaConfig.class})
+@ContextConfiguration(classes = {JpaJavaConfig.class}) //scans org.tk.spring.jpa and org.tk.spring.jpa.mapper
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class StockJpaCrudRepositoryTest {
 
