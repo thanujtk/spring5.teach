@@ -38,6 +38,7 @@ public class Stock3CrudPagingRepositoryTest {
         System.out.println("Total ELements : " + page.getTotalElements());
         System.out.println("Total Pages : " + page.getTotalPages());
         System.out.println("Count :" + page.stream().count());
+        System.out.println("Find First :" + page.stream().findFirst().orElse(null));
         page.get().forEach(System.out::println);
     }
 
