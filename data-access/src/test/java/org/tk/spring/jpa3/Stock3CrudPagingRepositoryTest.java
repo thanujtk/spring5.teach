@@ -37,6 +37,7 @@ public class Stock3CrudPagingRepositoryTest {
         Page<Stock3Entity> page = service.getAllPaginated(PageRequest.of(4, 1));
         System.out.println("Total ELements : " + page.getTotalElements());
         System.out.println("Total Pages : " + page.getTotalPages());
+        System.out.println("Count :" + page.stream().count());
         page.get().forEach(System.out::println);
     }
 
