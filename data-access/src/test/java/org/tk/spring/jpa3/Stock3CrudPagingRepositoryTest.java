@@ -31,14 +31,18 @@ public class Stock3CrudPagingRepositoryTest {
         stockList.forEach(System.out::println);
     }
 
-    //TODO still results not printed
     @Test
     void getAllStockPagination() {
-        Page<Stock3Entity> page = service.getAllPaginated(PageRequest.of(4, 1));
+        Page<Stock3Entity> page = service.getAllPaginated(1, 2, "id");
+        if (page.hasContent()) {
+            System.out.println("Records exists in the response");
+        } else {
+            System.out.println("No Records exists in the response");
+        }
         System.out.println("Total ELements : " + page.getTotalElements());
         System.out.println("Total Pages : " + page.getTotalPages());
         System.out.println("Count :" + page.stream().count());
-        System.out.println("Find First :" + page.stream().findFirst().orElse(null));
+        System.out.println("===PAGE RECORDS===");
         page.get().forEach(System.out::println);
     }
 
@@ -52,5 +56,11 @@ public class Stock3CrudPagingRepositoryTest {
 
         List<Stock3Entity> stockList = service.getAll();
         stockList.forEach(System.out::println);
+    }
+
+    @Test
+    void customQuery() {
+       List<String> ids = service.getAllStockId();
+       ids.forEach(System.out::println);
     }
 }
