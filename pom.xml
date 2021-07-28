@@ -25,7 +25,7 @@
 
         <sl4j.version>1.7.25</sl4j.version>
         <spring.version>5.3.9</spring.version>
-        <springdoc-openapi-ui.version>1.5.9</springdoc-openapi-ui.version>
+        <springdoc-openapi-ui.version>1.5.10</springdoc-openapi-ui.version>
         <lombok.version>1.18.20</lombok.version>
         <aspectj.version>1.9.7</aspectj.version>
         <!-- not used due to issue, instead using intellij error prone plugin -->
