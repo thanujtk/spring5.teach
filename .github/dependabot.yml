@@ -25,4 +25,7 @@ updates:
       - dependency-name: jakarta.annotation:jakarta.annotation-api
         versions:
           - "> 2.x.x"
+      - dependency-name: com.sun.xml.bind:jaxb-core
+        versions:
+          - "> 3.x.x"
 
