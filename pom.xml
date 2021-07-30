@@ -23,7 +23,7 @@
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
 
-        <sl4j.version>1.7.25</sl4j.version>
+        <sl4j.version>1.7.32</sl4j.version>
         <spring.version>5.3.9</spring.version>
         <springdoc-openapi-ui.version>1.5.9</springdoc-openapi-ui.version>
         <lombok.version>1.18.20</lombok.version>
@@ -31,7 +31,7 @@
         <!-- not used due to issue, instead using intellij error prone plugin -->
         <errorprone.version>2.7.1</errorprone.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <hibernate-entitymanager.version>5.5.4.Final</hibernate-entitymanager.version>
+        <hibernate-entitymanager.version>5.5.5.Final</hibernate-entitymanager.version>
         <spring-data-jpa.version>2.3.9.RELEASE</spring-data-jpa.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
