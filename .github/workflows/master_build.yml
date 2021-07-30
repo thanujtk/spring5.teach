@@ -39,5 +39,5 @@ jobs:
         run: |
           set MAVEN_PROJECT_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           echo "::set-output name=IMAGE_TAG::${MAVEN_PROJECT_VERSION}-$(git rev-parse --short=8 HEAD)"
-          echo "${MAVEN_PROJECT_VERSION}"
+          echo "$MAVEN_PROJECT_VERSION"
           echo "Image version will be ${{ steps.projectVersionAsImageTag.outputs.IMAGE_TAG }}"
