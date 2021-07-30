@@ -40,7 +40,7 @@
         <cache-api.version>1.1.1</cache-api.version>
         <ehcache.version>3.9.4</ehcache.version>
         <jakarta.xml.bind-api.version>2.3.2</jakarta.xml.bind-api.version>
-        <jaxb-impl.version>2.3.3</jaxb-impl.version>
+        <jaxb-impl.version>2.3.4</jaxb-impl.version>
         <jaxb-core.version>2.3.0.1</jaxb-core.version>
 
         <jakarta.el-api.version>3.0.3</jakarta.el-api.version>
