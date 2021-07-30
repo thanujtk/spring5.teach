@@ -36,7 +36,7 @@ jobs:
           mvn clean verify
           mvn versions:display-dependency-updates
           mvn help:evaluate -Dexpression=project.version -q -DforceStdout
-          echo | git rev-parse --short=8 HEAD
+
       - id: projectVersionAsImageTag
         run: |
           MAVEN_PROJECT_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
