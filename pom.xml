@@ -79,6 +79,7 @@
         <module>web-servlet</module>
     </modules>
 
+    <!-- https://github.com/gh-a-sample/github-actions-maven-release-sample -->
     <scm>
         <developerConnection>scm:git:https://github.com/thanujtk/spring5.teach.git</developerConnection>
         <connection>scm:git:https://github.com/thanujtk/spring5.teach.git</connection>
