@@ -393,6 +393,8 @@
                     <configuration>
                         <release>${jvm.target.version}</release>
                         <additionalOptions>--enable-preview</additionalOptions>
+                        <!-- avoid strict check of javadoc -->
+                        <additionalOptions>-Xdoclint:none</additionalOptions>
                     </configuration>
                 </plugin>
 
