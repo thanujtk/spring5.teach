@@ -8,23 +8,23 @@ import java.util.Arrays;
  * At high level.
  *
  * <ol>
- *    1. Instantiate the bean
- *    2. Populate properties
- *    3. Bean Name Aware
- *    4. Bean classloader Aware
- *    5. Bean Factory Aware
- *    6. Environment Aware
- *    7. EmbeddedValue Resolver Aware
- *    8. Resource Loader Aware
- *    9. ApplicationEvent Publisher Aware
- *    10. MessageSource Aware
- *    11. ApplicationContext Aware
- *    12. ServletContext Aware
- *    13. Pre-Initialization BeanPostProcessor
- *    14. Custom init-method
- *    15. InitializingBean afterPropertiesSet
- *    16. Post-Initialization BeanPostProcessor
- *    17. DisposableBean.destroy
+ *    <li> Instantiate the bean </li>
+ *    <li> Populate properties </li>
+ *    <li> Bean Name Aware </li>
+ *    <li> Bean classloader Aware </li>
+ *    <li> Bean Factory Aware </li>
+ *    <li> Environment Aware </li>
+ *    <li> EmbeddedValue Resolver Aware </li>
+ *    <li> Resource Loader Aware </li>
+ *    <li> ApplicationEvent Publisher Aware </li>
+ *    <li> MessageSource Aware </li>
+ *    <li> ApplicationContext Aware </li>
+ *    <li> ServletContext Aware </li>
+ *    <li> Pre-Initialization BeanPostProcessor </li>
+ *    <li> Custom init-method </li>
+ *    <li> InitializingBean afterPropertiesSet </li>
+ *    <li> Post-Initialization BeanPostProcessor </li>
+ *    <li> DisposableBean.destroy </li>
  * </ol>
  */
 public class MainBeanLifeCycle {

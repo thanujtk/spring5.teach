@@ -15,9 +15,8 @@ public class DateRangeIterator implements Iterator {
      * format yyyy-MM-dd.
      * <p>
      * Like 1950-01-01 to 1950-12-31
-     *
-     * @param from
-     * @param to
+     * @param from - from date
+     * @param  to  - to date
      */
     public DateRangeIterator(LocalDate from, LocalDate to) {
         fromDate = from;
