@@ -34,6 +34,7 @@ jobs:
       - name: verify and check updates
         run: |
           mvn jacoco:prepare-agent clean test jacoco:report sonar:sonar
+          mvn site site-deploy
           mvn versions:display-dependency-updates
       - id: projectVersionAsImageTag
         run: |

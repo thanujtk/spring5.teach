@@ -10,8 +10,13 @@
     <groupId>spring5.teach</groupId>
     <artifactId>spring5.teach.parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>Spring5 teach parent</name>
+    <url>http://home.nexus.com:8081/repository/maven-sites/${project.groupId}/${project.version}/</url>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/thanujtk/spring5.teach/issues</url>
+    </issueManagement>
 
     <properties>
         <!-- Compiler properties for maven -->
@@ -22,6 +27,8 @@
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+        <maven.gitcommitid.skip>false</maven.gitcommitid.skip>
+        <generateGitPropertiesFile>true</generateGitPropertiesFile>
 
         <sl4j.version>1.7.32</sl4j.version>
         <spring.version>5.3.9</spring.version>
@@ -72,6 +79,39 @@
         <module>web-servlet</module>
     </modules>
 
+    <scm>
+        <developerConnection>scm:git:https://github.com/thanujtk/spring5.teach.git</developerConnection>
+        <connection>scm:git:https://github.com/thanujtk/spring5.teach.git</connection>
+        <url>https://github.com/thanujtk/spring5.teach.git</url>
+        <tag>spring5.teach.parent-1.0.0</tag>
+    </scm>
+
+    <!-- to push information to nexus (mvn clean site deploy site-deploy) -->
+    <distributionManagement>
+        <site>
+            <!-- https://maven.apache.org/plugins/maven-site-plugin/usage.html -->
+            <!-- https://www.baeldung.com/maven-deploy-nexus -->
+            <!-- make sure username and password is set in maven settings.xml as per this id, and in local nexus we have create username and password  -->
+            <!-- mvn site-deploy  or mvn site site:deploy-->
+            <id>local.mavenSites</id>
+            <name>Local Maven Sites</name>
+            <url>dav:http://home.nexus.com:8081/repository/maven-sites/${project.groupId}/${project.version}/</url>
+        </site>
+        <snapshotRepository>
+            <!-- maven deploy -->
+            <id>local.snapshotRepository</id>
+            <layout>default</layout>
+            <name>Local Maven Snapshot Repository</name>
+            <url>http://home.nexus.com:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <!-- mvn -B release:prepare release:perform  (this would release to nexus and also create a tag in github and update this pom.xml to next version of snapshot)-->
+            <id>local.releaseRepository</id>
+            <layout>default</layout>
+            <name>Local Maven Release Repository</name>
+            <url>http://home.nexus.com:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
     <!-- dependency management for child projects -->
     <dependencyManagement>
@@ -347,10 +387,19 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.3</version>
+                    <configuration>
+                        <arguments>-Denforcer.skip=true</arguments>
+                    </configuration>
+                </plugin>
+                <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>${sonar.plugin.version}</version>
                 </plugin>
+                <!-- mvn jacoco:prepare-agent clean test jacoco:report sonar:sonar -->
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
@@ -380,10 +429,45 @@
                         </systemPropertyVariables>
                     </configuration>
                 </plugin>
-
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.9.1</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.wagon</groupId>
+                            <artifactId>wagon-webdav-jackrabbit</artifactId>
+                            <!-- https://issues.apache.org/jira/browse/MSITE-832 -->
+                            <version>3.4.3</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>4.9.9</version>
+                    <configuration>
+                        <skip>${maven.gitcommitid.skip}</skip>
+                        <generateGitPropertiesFile>${generateGitPropertiesFile}</generateGitPropertiesFile>
+                        <abbrevLength>8</abbrevLength>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>revision</goal>
+                                <goal>validateRevision</goal>
+                            </goals>
+                            <phase>initialize</phase>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -472,4 +556,14 @@
             </plugin>
         </plugins>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.1.2</version>
+                <inherited>true</inherited>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
