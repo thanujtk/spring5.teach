@@ -33,8 +33,7 @@ jobs:
 #          restore-keys: ${{ runner.os }}-maven-
       - name: verify and check updates
         run: |
-          mvn jacoco:prepare-agent clean test jacoco:report sonar:sonar
-          mvn site site-deploy
+          mvn jacoco:prepare-agent clean test jacoco:report sonar:sonar site site-deploy deploy
           mvn versions:display-dependency-updates
       - id: projectVersionAsImageTag
         run: |
