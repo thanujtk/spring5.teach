@@ -105,7 +105,7 @@
             <url>http://home.nexus.com:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
-            <!-- mvn -B release:prepare release:perform  (this would release to nexus and also create a tag in github and update this pom.xml to next version of snapshot)-->
+            <!-- mvn -B release:prepare release:perform  -Darguments="-Dmaven.javadoc.skip=true" (this would release to nexus and also create a tag in github and update this pom.xml to next version of snapshot)-->
             <id>local.releaseRepository</id>
             <layout>default</layout>
             <name>Local Maven Release Repository</name>
