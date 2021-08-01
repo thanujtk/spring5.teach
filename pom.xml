@@ -434,6 +434,12 @@
                 <version>2.22.2</version>
                 <configuration>
                     <argLine>--enable-preview</argLine>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>org.sonar.java.jacoco.JUnitListener</value>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
             <plugin>
