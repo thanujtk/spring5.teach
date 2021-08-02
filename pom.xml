@@ -105,6 +105,7 @@
             <url>http://home.nexus.com:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
+            <!-- https://maven.apache.org/maven-release/maven-release-plugin/ -->
             <!-- mvn -B release:prepare release:perform  -Darguments="-Dmaven.javadoc.skip=true" (this would release to nexus and also create a tag in github and update this pom.xml to next version of snapshot)-->
             <id>local.releaseRepository</id>
             <layout>default</layout>
@@ -403,7 +404,7 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5.3</version>
                     <configuration>
-                        <arguments>-Denforcer.skip=true</arguments>
+                        <arguments>-DskipTests -Dmaven.javadoc.skip=true -Denforcer.skip=true</arguments>
                     </configuration>
                 </plugin>
                 <plugin>
