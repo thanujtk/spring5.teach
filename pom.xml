@@ -44,7 +44,7 @@
         <junit5.version>5.7.2</junit5.version>
         <h2database.version>1.4.200</h2database.version>
         <cache-api.version>1.1.1</cache-api.version>
-        <ehcache.version>3.9.5</ehcache.version>
+        <ehcache.version>3.9.6</ehcache.version>
         <jakarta.xml.bind-api.version>2.3.2</jakarta.xml.bind-api.version>
         <jaxb-impl.version>2.3.5</jaxb-impl.version>
         <jaxb-core.version>2.3.0.1</jaxb-core.version>
