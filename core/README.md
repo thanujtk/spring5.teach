@@ -17,7 +17,7 @@ __**NOTES**__
 4. **@PreDestroy** (method level) - alternative way for bean
    destroyMethod, used when bean class is defined by us.
 5. **@ComponentScan** (class level) - Configures component scanning
-   directives for use with @Configuration classes. Here we can specify
+   directives for use with **@Configuration** classes. Here we can specify
    the base packages to scan for spring components. If not specified
    then scan current package and all sub-packages where @Configuration
    class exists.
