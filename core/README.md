@@ -42,9 +42,11 @@ __**NOTES**__
     Autowired to avoid confusion when we have two of more bean
     configured for same type. When Spring can’t find a matching bean to
     wire, it will throw an exception, to fix this set the “**required**”
-    attribute of @Autowired to false. **@Resource** - inject by name
-11. **@Qualifier** - Used with @Autowired when more than one bean of
+    attribute of @Autowired to false. 
+11. **@Resource** - inject by name
+12. **@Qualifier** - Used with @Autowired when more than one bean of
     same type exists in container.
+13. **@Required** applies to bean setter method. It indicates that the annotated bean must be populated at configuration time else exception BeanInitilizationException
 
 Stereotype annotations are @Component, @Service, @Repository and
 @Controller
