@@ -36,7 +36,7 @@ __**NOTES**__
 9. **@Respository** (class level) - Indicates that an annotated class is
    a “Repository”. This annotation serves as a specialization of
    @Component and advisable to use with DAO classes.
-10. **@Autowired** (variable, constructor, method level) - Spring
+10. **@Autowired** (instance variable, constructor, method level) - Spring
     @Autowired (by type) annotation is used for automatic injection of
     beans. Spring **@Qualifier** annotation is used in conjunction with
     Autowired to avoid confusion when we have two of more bean
