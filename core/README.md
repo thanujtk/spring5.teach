@@ -48,8 +48,11 @@ __**NOTES**__
     same type exists in container.
 13. **@Required** applies to bean setter method. It indicates that the annotated bean must be populated at configuration time else exception BeanInitilizationException
 
-Stereotype annotations are @Component, @Service, @Repository and
-@Controller
+###Stereotype annotations are
+1. @Component - class-level annotation, marks a Java class as a spring bean. A Java class annotated with @Component is found during the classpath scan. 
+2. @Service -  class level annotation, this class contains the business logic.
+3. @Repository - class level annotation, marks class as data access object / object dealing with domain (Aggregate Roots).
+4. @Controller - class-level annotation, specialization of @Component. It marks a class as a web request handler. Mostly used with @RequestMapping annotation.
 
 ## Scopes ##
 
