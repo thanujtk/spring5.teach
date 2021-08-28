@@ -68,5 +68,33 @@ Valid in web-aware spring projects
 - Global Session
 
 
-### Spring MVC Annotations
+### Spring MVC and REST Annotations
+
+- **@RequestMapping** - It is used to map the web requests. It has many optional elements like **consumes**, **header**
+  , **method**, **name**, **params**, **path**, **produces**, and **value**. We use it with the class as well as the
+  method.
+- **@GetMapping** - maps the HTTP **GET** requests on the specific handler method, same as **@RequestMapping(method =
+  RequestMethod.GET)**
+- **@PostMapping** - maps the HTTP **POST** requests on the specific handler method, same as **@RequestMapping(method =
+  RequestMethod.POST)**
+- **@PutMapping** - maps the HTTP **PUT** requests on the specific handler method, same as **@RequestMapping(method =
+  RequestMethod.PUT)**
+- **@DeleteMapping** - maps the HTTP **DELETE** requests on the specific handler method, same as **@RequestMapping(
+  method = RequestMethod.DELETE)**
+- **@PatchMapping** - maps the HTTP **PATCH** requests on the specific handler method, same as **@RequestMapping(method
+  = RequestMethod.PATCH)**
+
+
+- **@RequestBody** - binds HTTP request with an object in a method parameter, uses HTTP **MessageConverters** to convert
+  the body of the request.
+- **@ResponseBody** - binds the method return value to the response body (serializes to JSON and XML format)
+
+
+- **@PathVariable** - used to extract the values from the URI. We can define multiple @PathVariable in a method
+- **@RequestParam** - used to extract the query parameters form the URL. It can specify default values if the query
+  parameter is not present in the URL.
+- **@RequestHeader** - used to get the details about the HTTP request headers. The optional elements of the annotation
+  are **name**, **required**, **value**, **defaultValue**.
+- **@RestController** - can be considered as a combination of **@Controller** and **@ResponseBody** annotations.
+- **@RequestAttribute** - binds a method parameter to request attribute.
 
