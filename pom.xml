@@ -390,7 +390,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.3.0</version>
+                    <version>3.3.1</version>
                     <configuration>
                         <release>${jvm.target.version}</release>
                         <additionalOptions>--enable-preview</additionalOptions>
