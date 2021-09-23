@@ -23,7 +23,7 @@ jobs:
           distribution: 'adopt'
           overwrite-settings: false
       - name: setup maven
-        uses: stCarolas/setup-maven@v4.1
+        uses: stCarolas/setup-maven@v4.2
         with:
           maven-version: 3.8.1
 #      - name: cache maven artifacts
@@ -45,7 +45,7 @@ jobs:
           echo "Image version will be ${{ steps.projectVersionAsImageTag.outputs.IMAGE_TAG }}"
         shell: bash
       - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v2.4.3
+        uses: mikepenz/action-junit-report@v2.4.4
         with:
           report_paths: '**/surefire-reports/TEST-*.xml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
