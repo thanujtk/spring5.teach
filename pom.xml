@@ -37,7 +37,7 @@
         <!-- not used due to issue, instead using intellij error prone plugin -->
         <errorprone.version>2.7.1</errorprone.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <hibernate-entitymanager.version>5.6.0.Final</hibernate-entitymanager.version>
+        <hibernate-entitymanager.version>5.6.1.Final</hibernate-entitymanager.version>
         <spring-data-jpa.version>2.5.6</spring-data-jpa.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
