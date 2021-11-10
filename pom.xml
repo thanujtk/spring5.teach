@@ -61,7 +61,7 @@
         <!-- mvn jacoco:prepare-agent clean test jacoco:report sonar:sonar -->
         <sonar.host.url>http://home.sonar.com:9000</sonar.host.url>
         <sonar.login>41f09f11843d995edbf5617153d340a3b2851075</sonar.login>
-        <sonar.plugin.version>3.9.0.2155</sonar.plugin.version>
+        <sonar.plugin.version>3.9.1.2184</sonar.plugin.version>
         <jacoco.plugin.version>0.8.7</jacoco.plugin.version>
         <sonar.jacoco.listener.version>5.14.0.18788</sonar.jacoco.listener.version>
         <sonar.java.source>${jvm.target.version}</sonar.java.source>
