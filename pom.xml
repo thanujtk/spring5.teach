@@ -30,7 +30,7 @@
         <argLine>--enable-preview</argLine>
 
         <sl4j.version>1.7.32</sl4j.version>
-        <spring.version>5.3.12</spring.version>
+        <spring.version>5.3.13</spring.version>
         <springdoc-openapi-ui.version>1.5.12</springdoc-openapi-ui.version>
         <lombok.version>1.18.22</lombok.version>
         <aspectj.version>1.9.7</aspectj.version>
