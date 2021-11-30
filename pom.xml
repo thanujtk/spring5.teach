@@ -42,7 +42,7 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
         <junit5.version>5.8.1</junit5.version>
-        <h2database.version>1.4.200</h2database.version>
+        <h2database.version>2.0.202</h2database.version>
         <cache-api.version>1.1.1</cache-api.version>
         <ehcache.version>3.9.7</ehcache.version>
         <jakarta.xml.bind-api.version>2.3.2</jakarta.xml.bind-api.version>
