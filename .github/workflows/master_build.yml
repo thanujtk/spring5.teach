@@ -13,7 +13,7 @@ jobs:
     runs-on: [self-hosted]
     steps:
       - name: check out
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0  # was 1 and changed to 0 as sonar complain shallow fetch - Warning:  Shallow clone detected, no blame information will be provided. You can convert to non-shallow with 'git fetch --unshallow'.
       - name: setup java 16
