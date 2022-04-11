@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0  # was 1 and changed to 0 as sonar complain shallow fetch - Warning:  Shallow clone detected, no blame information will be provided. You can convert to non-shallow with 'git fetch --unshallow'.
       - name: setup java 16
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '16'
           distribution: 'adopt'
